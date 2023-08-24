@@ -29,7 +29,7 @@ const Hero = () => {
       </div>
       <div className="w-full inset-0 md:relative md:w-1/2">
         <div className="relative hero-image">
-          <div className="overlay bg-black inset-0 opacity-30 z-10"></div>
+          <div className="overlay bg-black inset-0 opacity-0 md:opacity-30 z-10"></div>
           <div className="overlay right-0 bottom-0 md:inset-0">
             <button
               className="video hero-cta focus:outline-none z-30 modal-trigger"
