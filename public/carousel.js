@@ -43,7 +43,7 @@ function slide(wrapper, items) {
     e.preventDefault();
     posInitial = items.offsetLeft;
 
-    if (e.type == "touchstart") {
+    if (e.type === "touchstart") {
       posX1 = e.touches[0].clientX;
     } else {
       posX1 = e.clientX;
@@ -55,7 +55,7 @@ function slide(wrapper, items) {
   function dragAction(e) {
     e = e || window.event;
 
-    if (e.type == "touchmove") {
+    if (e.type === "touchmove") {
       posX2 = posX1 - e.touches[0].clientX;
       posX1 = e.touches[0].clientX;
     } else {
@@ -88,10 +88,10 @@ function slide(wrapper, items) {
         posInitial = items.offsetLeft;
       }
 
-      if (dir == 1) {
+      if (dir === 1) {
         items.style.left = posInitial - slideSize + "px";
         index++;
-      } else if (dir == -1) {
+      } else if (dir === -1) {
         items.style.left = posInitial + slideSize + "px";
         index--;
       }
@@ -118,7 +118,7 @@ function slide(wrapper, items) {
         items.style.left =
           -((slidesLength - itemToShow + isMobile) * slideSize) + "px";
         index = slidesLength - itemToShow;
-      } else if (index == slidesLength || index == slidesLength - 1) {
+      } else if (index === slidesLength || index === slidesLength - 1) {
         // console.log(3);
         items.style.left = slidesLength - 1 * slideSize + "px";
         index = slidesLength - 1;

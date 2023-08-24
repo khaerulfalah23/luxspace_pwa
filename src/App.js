@@ -7,14 +7,20 @@ import Clients from "./components/Clients";
 import AsideMenu from "./components/AsideMenu";
 import Footer from "./components/Footer";
 import Offline from "./components/Offline";
+import Splash from "./pages/Splash";
 
 function App() {
   const [items, setItems] = useState([]);
   const [offlineStatus, setOfflineStatus] = useState(!navigator.onLine);
+  const [isLoading, setLoading] = useState(true);
 
   function handleOfflineStatus() {
     setOfflineStatus(!navigator.onLine);
   }
+
+  setTimeout(() => {
+    setLoading(false);
+  }, 1500);
 
   useEffect(
     function () {
@@ -43,14 +49,20 @@ function App() {
     }, [offlineStatus]);
   return (
     <>
-      {offlineStatus && <Offline />}
-      <Header />
-      <Hero />
-      <Browse />
-      <Arrived items={items} />
-      <Clients />
-      <AsideMenu />
-      <Footer />
+      {isLoading ? <Splash /> :
+        (
+          <>
+            {offlineStatus && <Offline />}
+            <Header />
+            <Hero />
+            <Browse />
+            <Arrived items={items} />
+            <Clients />
+            <AsideMenu />
+            <Footer />
+          </>
+        )
+      }
     </>
   );
 }
