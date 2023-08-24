@@ -90,7 +90,7 @@ const AsideMenu = () => {
         </aside>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default AsideMenu
+export default AsideMenu;
